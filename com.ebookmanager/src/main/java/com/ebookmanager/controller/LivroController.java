@@ -3,8 +3,10 @@ package com.ebookmanager.controller;
 import com.ebookmanager.mapper.LivroMapper;
 import com.ebookmanager.model.Livro;
 import com.ebookmanager.request.LivroPostRequest;
+import com.ebookmanager.request.LivroPutRequest;
 import com.ebookmanager.response.LivroGetResponse;
 import com.ebookmanager.response.LivroPostResponse;
+import com.ebookmanager.response.LivroPutResponse;
 import com.ebookmanager.service.LivroService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -45,6 +47,55 @@ public class LivroController {
         return ResponseEntity.status(HttpStatus.OK).body(listLivrosGetResponse);
 
 
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<LivroGetResponse> findbyId(@PathVariable @Valid Long id){
+
+        var livroGetResponse = Mapper.livroToLivroGetResponse(livroService.findById(id));
+
+        return ResponseEntity.status(HttpStatus.OK).body(livroGetResponse);
+
+    }
+
+    @DeleteMapping({"{id}"})
+    public void deleteBook(@PathVariable @Valid Long id){
+        livroService.delete(id);
+    }
+
+    @PutMapping
+    public ResponseEntity<LivroPutResponse> alterarLivro(@RequestBody LivroPutRequest livroRequest){
+
+        var livro = Mapper.livroPutRequestToLivro(livroRequest);
+
+        var livroUpdate = livroService.updateBook(livro);
+
+        var livroPutResponse = Mapper.livroToLivroPutResponse(livroUpdate);
+
+        return ResponseEntity.status(HttpStatus.OK).body(livroPutResponse);
+
+
+    }
+
+
+    @GetMapping("filterTitle")
+    public ResponseEntity<List<LivroGetResponse>> findbyTitle(@RequestParam(defaultValue = "") String title){
+
+        var listLivros = livroService.findByTitle(title);
+
+        var listLivrosGetResponse = Mapper.listBooksToListBookGetResponse(listLivros);
+
+        return ResponseEntity.status(HttpStatus.OK).body(listLivrosGetResponse);
+    }
+
+    @GetMapping("filterAutor")
+    public ResponseEntity<List<LivroGetResponse>> findbyAutor(@RequestParam(defaultValue = "") String autor){
+
+        var listAutor = livroService.findByAutor(autor);
+
+        var listLivrosGetResponse = Mapper.listBooksToListBookGetResponse(listAutor);
+
+        return ResponseEntity.status(HttpStatus.OK).body(listLivrosGetResponse);
     }
 
 }
