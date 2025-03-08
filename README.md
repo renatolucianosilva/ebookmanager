@@ -20,9 +20,9 @@ Este projeto implementa um sistema web para gerenciar empréstimos de livros, ut
 * Banco de dados relacional (H2, MySQL, PostgreSQL, etc.)
 * Maven ou Gradle
 
-### End Points da API
 
-## Endpoints da API
+
+### Endpoints da API
 
 | Método | Endpoint                     | Descrição                                           |
 | ------ |------------------------------|-----------------------------------------------------|
