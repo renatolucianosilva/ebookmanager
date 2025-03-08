@@ -15,6 +15,9 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
     public Usuario save(Usuario usuario) {
+
+        if(pesquisaEmail(usuario.getEmail()) != null) throw new BadRequestException("Usuario já Cadastrado");
+
         return usuarioRepository.save(usuario);
     }
 
@@ -41,6 +44,11 @@ public class UsuarioService {
         findById(usuario.getId());
         return usuarioRepository.save(usuario);
 
+    }
+
+    public Usuario pesquisaEmail(String email) {
+
+        return usuarioRepository.findByEmail(email);
 
     }
 
