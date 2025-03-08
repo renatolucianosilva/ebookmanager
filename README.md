@@ -20,6 +20,20 @@ Este projeto implementa um sistema web para gerenciar empréstimos de livros, ut
 * Banco de dados relacional (H2, MySQL, PostgreSQL, etc.)
 * Maven ou Gradle
 
+### End Points da API
+
+## Endpoints da API
+
+| Método | Endpoint                     | Descrição                                           |
+| ------ |------------------------------|-----------------------------------------------------|
+| GET    | `/livros`                    | Retorna a lista de todos os Livros                  |
+| GET    | `/livros/{id}`               | Retorna um Livro específico pelo ID.                |
+| GET    | `/livros/filterTitle?title=` | Retorna uma lista de Livros com titulo específico.  |
+| GET    | `/livros/filterAutor?autor=` | Retorna uma lista de Livros de um Autor específico. |
+| POST   | `/livros`                    | Cria um novo Livro.                                 |
+| PUT    | `/livros/{id}`               | Atualiza um Livro existente.                        |
+| DELETE | `/livro/{id}`                | Deleta um Livro pelo ID.                            |
+
 ### Frontend
 
 * JSF (JavaServer Faces)
