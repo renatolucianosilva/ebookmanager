@@ -53,3 +53,5 @@ Este projeto implementa um sistema web para gerenciar empréstimos de livros, ut
 * A data de devolução prevista deve ser calculada automaticamente.
 * Ao registrar uma devolução, a disponibilidade do livro deve ser atualizada.
 * (Opcional) Calcular multa por atraso na devolução.
+
+## Projeto não Finalizado.
