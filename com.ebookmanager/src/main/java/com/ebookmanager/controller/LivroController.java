@@ -6,6 +6,7 @@ import com.ebookmanager.request.LivroPostRequest;
 import com.ebookmanager.response.LivroGetResponse;
 import com.ebookmanager.response.LivroPostResponse;
 import com.ebookmanager.service.LivroService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class LivroController {
     private final LivroMapper Mapper;
 
     @PostMapping
-    public ResponseEntity<LivroPostResponse> saveBook(@RequestBody LivroPostRequest livroRequest){
+    public ResponseEntity<LivroPostResponse> saveBook(@RequestBody @Valid LivroPostRequest livroRequest){
 
         var livro = Mapper.livroPostRequestToLivro(livroRequest);
 
