@@ -11,4 +11,9 @@ import java.util.List;
 public interface LivroRepository extends JpaRepository<Livro, Long> {
 
     List<Livro> findByTitulo(String titulo) throws BadRequestException;
+
+    List<Livro> findByAutor(String autor) throws BadRequestException;
+
+
+
 }

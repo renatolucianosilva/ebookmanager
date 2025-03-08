@@ -1,14 +1,22 @@
 package com.ebookmanager.request;
 
 import com.ebookmanager.model.Genero;
-
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
-@Data
-public class LivroPostRequest {
+@Getter
+@Setter
+@Builder
+public class LivroPutRequest {
+
+    @NotNull(message = "Campo ID Obrigatorio")
+    @NotEmpty(message = "Campo ID Obrigatorio")
+    private Long id;
 
     @NotNull(message = "Campo Título Obrigatorio")
     @NotEmpty(message = "Campo Título Obrigatorio")
