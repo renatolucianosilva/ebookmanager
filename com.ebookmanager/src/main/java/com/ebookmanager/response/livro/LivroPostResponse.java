@@ -1,4 +1,4 @@
-package com.ebookmanager.response;
+package com.ebookmanager.response.livro;
 
 import com.ebookmanager.model.Genero;
 import lombok.Builder;
@@ -8,13 +8,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class LivroGetResponse {
+public class LivroPostResponse {
 
     private Long id;
     private String titulo;
     private String autor;
+    private String editora;
     private Integer anoPublicacao;
     private Genero genero;
     private Boolean disponivel;
-
 }
