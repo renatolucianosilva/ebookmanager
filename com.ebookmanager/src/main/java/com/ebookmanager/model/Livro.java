@@ -21,10 +21,17 @@ public class Livro {
     @Column(name = "autor")
     private String autor;
 
+    @Column(name="editora")
+    private String editora;
+
     @Column(name = "ano_publicacao")
     private Integer anoPublicacao;
 
     @Column(name = "genero")
-    private String genero;
+    @Enumerated
+    private Genero genero;
+
+    @Column(name = "disponivel")
+    private Boolean disponivel;
 
 }

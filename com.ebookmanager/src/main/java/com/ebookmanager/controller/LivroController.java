@@ -29,11 +29,7 @@ public class LivroController {
 
         var livroSaved = livroService.save(livro);
 
-
-
         var livroResponse = Mapper.livroPostResponseToLivro(livroSaved);
-
-        System.out.println(livroResponse.getId());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(livroResponse);
     }
