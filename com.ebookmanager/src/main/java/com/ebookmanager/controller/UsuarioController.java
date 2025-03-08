@@ -46,7 +46,7 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public ResponseEntity<UsuarioPutResponse> updateUsuario(@RequestBody @Valid UsuarioPutRequest usuario) {
+    public ResponseEntity<UsuarioPutResponse> updateUsuario(@RequestBody UsuarioPutRequest usuario) {
 
         return ResponseEntity.status(HttpStatus.OK)
                 .body(Mapper.toUsuarioPutResponse(usuarioService
