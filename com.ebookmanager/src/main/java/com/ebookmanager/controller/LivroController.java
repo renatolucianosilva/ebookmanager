@@ -1,12 +1,11 @@
 package com.ebookmanager.controller;
 
 import com.ebookmanager.mapper.LivroMapper;
-import com.ebookmanager.model.Livro;
-import com.ebookmanager.request.LivroPostRequest;
-import com.ebookmanager.request.LivroPutRequest;
-import com.ebookmanager.response.LivroGetResponse;
-import com.ebookmanager.response.LivroPostResponse;
-import com.ebookmanager.response.LivroPutResponse;
+import com.ebookmanager.request.livro.LivroPostRequest;
+import com.ebookmanager.request.livro.LivroPutRequest;
+import com.ebookmanager.response.livro.LivroGetResponse;
+import com.ebookmanager.response.livro.LivroPostResponse;
+import com.ebookmanager.response.livro.LivroPutResponse;
 import com.ebookmanager.service.LivroService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -79,7 +78,7 @@ public class LivroController {
 
 
     @GetMapping("filterTitle")
-    public ResponseEntity<List<LivroGetResponse>> findbyTitle(@RequestParam(defaultValue = "") String title){
+    public ResponseEntity<List<LivroGetResponse>> findbyTitle(@RequestParam String title){
 
         var listLivros = livroService.findByTitle(title);
 
@@ -89,7 +88,7 @@ public class LivroController {
     }
 
     @GetMapping("filterAutor")
-    public ResponseEntity<List<LivroGetResponse>> findbyAutor(@RequestParam(defaultValue = "") String autor){
+    public ResponseEntity<List<LivroGetResponse>> findbyAutor(@RequestParam String autor){
 
         var listAutor = livroService.findByAutor(autor);
 

@@ -1,14 +1,11 @@
 package com.ebookmanager.service;
 
 import com.ebookmanager.exceptions.BadRequestException;
-import com.ebookmanager.model.Genero;
 import com.ebookmanager.model.Livro;
 import com.ebookmanager.repository.LivroRepository;
-import com.ebookmanager.request.LivroPutRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service

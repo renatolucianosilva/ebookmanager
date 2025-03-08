@@ -1,13 +1,12 @@
 package com.ebookmanager.mapper;
 
 import com.ebookmanager.model.Livro;
-import com.ebookmanager.request.LivroPostRequest;
-import com.ebookmanager.request.LivroPutRequest;
-import com.ebookmanager.response.LivroGetResponse;
-import com.ebookmanager.response.LivroPostResponse;
-import com.ebookmanager.response.LivroPutResponse;
+import com.ebookmanager.request.livro.LivroPostRequest;
+import com.ebookmanager.request.livro.LivroPutRequest;
+import com.ebookmanager.response.livro.LivroGetResponse;
+import com.ebookmanager.response.livro.LivroPostResponse;
+import com.ebookmanager.response.livro.LivroPutResponse;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
 import java.util.List;
