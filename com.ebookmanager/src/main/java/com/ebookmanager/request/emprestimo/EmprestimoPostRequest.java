@@ -11,10 +11,13 @@ import java.time.LocalDate;
 public class EmprestimoPostRequest {
 
 
-
+    private Long idLivro;
+    private Long idUsuario;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate dataEmprestimo;
+
+    private Boolean devolucao;
 
 
 

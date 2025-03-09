@@ -2,8 +2,8 @@ package com.ebookmanager.response.emprestimo;
 
 import com.ebookmanager.model.Livro;
 import com.ebookmanager.model.Usuario;
-import com.ebookmanager.response.livro.LivroPostResponse;
-import com.ebookmanager.response.usuario.UsuarioPostResponse;
+import com.ebookmanager.response.livro.LivroGetResponse;
+import com.ebookmanager.response.usuario.UsuarioGetResponse;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +12,13 @@ import java.time.LocalDate;
 
 @Data
 @Builder
-public class EmprestimoPostResponse {
+public class EmprestimoGetResponse {
 
     private long idEmprestimo;
 
-    private LivroPostResponse livro;
+    private LivroGetResponse livro;
 
-    private UsuarioPostResponse usuario;
+    private UsuarioGetResponse usuario;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate dataEmprestimo;
@@ -30,6 +30,4 @@ public class EmprestimoPostResponse {
     private LocalDate dataDevolucao;
 
     private Double multa;
-
-    private Boolean devolucao;
 }

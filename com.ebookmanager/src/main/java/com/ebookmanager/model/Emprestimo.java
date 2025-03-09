@@ -48,4 +48,7 @@ public class Emprestimo {
     @Column(name = "multa")
     private Double multa;
 
+    @Column(name = "devolucao")
+    private Boolean devolucao;
+
 }

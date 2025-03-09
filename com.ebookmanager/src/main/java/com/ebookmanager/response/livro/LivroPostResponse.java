@@ -13,7 +13,6 @@ public class LivroPostResponse {
     private Long id;
     private String titulo;
     private String autor;
-    private String editora;
     private Integer anoPublicacao;
     private Genero genero;
     private Boolean disponivel;
