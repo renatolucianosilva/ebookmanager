@@ -63,5 +63,12 @@ public class LivroService {
 
     }
 
+    public Livro verificaLivroDisponivel(Long idLivro){
+
+        if(!findById(idLivro).getDisponivel()) throw new BadRequestException("Livro Indisponivel");
+
+        return findById(idLivro);
+    }
+
 
 }
