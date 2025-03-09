@@ -41,7 +41,7 @@ public class UsuarioService {
     }
 
     public Usuario updateUsuario(Usuario usuario) {
-        findById(usuario.getId());
+        findById(usuario.getIdUsuario());
         return usuarioRepository.save(usuario);
 
     }

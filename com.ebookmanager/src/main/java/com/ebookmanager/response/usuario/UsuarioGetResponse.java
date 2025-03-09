@@ -10,7 +10,7 @@ import lombok.Setter;
 @Builder
 public class UsuarioGetResponse {
 
-    private Long id;
+    private Long idUsuario;
     private String nome;
     private String email;
     private String telefone;
