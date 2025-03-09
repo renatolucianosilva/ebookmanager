@@ -97,4 +97,11 @@ public class LivroController {
         return ResponseEntity.status(HttpStatus.OK).body(listLivrosGetResponse);
     }
 
+    @GetMapping("disponivel")
+    public ResponseEntity<LivroGetResponse> verificaDisponibilidade(@RequestParam Long disponivelId){
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(Mapper.livroToLivroGetResponse(livroService.verificaLivroDisponivel(disponivelId)));
+    }
+
 }
