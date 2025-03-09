@@ -14,7 +14,7 @@ public class EmprestimoSetData {
 
     public LocalDate dataDevolucaoPrevista(LocalDate date) {
 
-        return date.plusDays(10L);
+        return date.plusDays(15L);
 
     }
 
