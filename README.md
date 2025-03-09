@@ -24,6 +24,8 @@ Este projeto implementa um sistema web para gerenciar empréstimos de livros, ut
 
 ### Endpoints da API
 
+## livros
+
 | Método | Endpoint                     | Descrição                                           |
 | ------ |------------------------------|-----------------------------------------------------|
 | GET    | `/livros`                    | Retorna a lista de todos os Livros                  |
@@ -32,7 +34,17 @@ Este projeto implementa um sistema web para gerenciar empréstimos de livros, ut
 | GET    | `/livros/filterAutor?autor=` | Retorna uma lista de Livros de um Autor específico. |
 | POST   | `/livros`                    | Cria um novo Livro.                                 |
 | PUT    | `/livros/{id}`               | Atualiza um Livro existente.                        |
-| DELETE | `/livro/{id}`                | Deleta um Livro pelo ID.                            |
+| DELETE | `/livros/{id}`               | Deleta um Livro pelo ID.                            |
+
+## usuarios
+
+| Método | Endpoint         | Descrição                              |
+| ------ |------------------|----------------------------------------|
+| GET    | `/usuarios`      | Retorna a lista de todos os Usuarios   |
+| GET    | `/usuarios/{id}` | Retorna um Usuario específico pelo ID. |
+| POST   | `/usuarios`      | Cria um novo Usuario.                  |
+| PUT    | `/usuarios/{id}` | Atualiza um Usuario existente.         |
+| DELETE | `/usuarios/{id}` | Deleta um Usuario pelo ID.             |
 
 ### Frontend
 
