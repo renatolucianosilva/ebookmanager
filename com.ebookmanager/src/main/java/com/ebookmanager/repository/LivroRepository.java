@@ -14,6 +14,8 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
 
     List<Livro> findByAutor(String autor) throws BadRequestException;
 
+    Livro findByDisponivel(boolean disponivel) throws BadRequestException;
+
 
 
 }
