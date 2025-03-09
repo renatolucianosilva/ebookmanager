@@ -10,6 +10,7 @@ import com.ebookmanager.request.emprestimo.EmprestimoPostRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -30,8 +31,21 @@ public class EmprestimoService {
        return repository.save(realizarEmprestimo(emprestimo, emprestimoRequest));
     }
 
-    public List<Emprestimo> listaEmprestimos() {
-        return repository.findAll();
+    public List<Emprestimo> listaEmprestimos(Boolean condicao) {
+
+        return condicao != null ? repository.findByDevolucao(condicao) : repository.findAll();
+    }
+
+    public Emprestimo findById(Long id) {
+
+        return repository.findById(id)
+                .orElseThrow( () -> new BadRequestException("Id Emprestimo Not Found"));
+
+    }
+
+    public Emprestimo devolucao(Long id) {
+
+        return calcularMulta(findById(id));
     }
 
     public Emprestimo realizarEmprestimo(Emprestimo emprestimo, EmprestimoPostRequest emprestimoRequest) {
@@ -54,7 +68,29 @@ public class EmprestimoService {
 
     public Livro selecionaLivro(Long id){
 
-        return livroService.findById(id);
+        var livro =  livroService.findById(id);
+        livro.setDisponivel(false);
+        return livro;
+
+    }
+
+    public void devolverLivro(Long id){
+
+        var livro =  livroService.findById(id);
+        livro.setDisponivel(true);
+
+    }
+
+    public Emprestimo calcularMulta(Emprestimo emprestimo){
+
+        emprestimo.setDataDevolucao(LocalDate.now());
+        emprestimo.setMulta(emprestimoSetData.calculoMulta(emprestimo.getDataDevolucao()));
+        emprestimo.setDevolucao(true);
+        devolverLivro(emprestimo.getLivro().getId());
+
+        return repository.save(emprestimo);
+
+
     }
 
 }

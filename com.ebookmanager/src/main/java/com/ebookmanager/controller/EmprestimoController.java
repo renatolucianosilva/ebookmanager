@@ -33,11 +33,19 @@ public class EmprestimoController {
    }
 
    @GetMapping
-    public ResponseEntity<List<EmprestimoGetResponse>> retornaEmprestimos() {
+    public ResponseEntity<List<EmprestimoGetResponse>> retornaEmprestimos(@RequestParam (required = false) Boolean condicao) {
 
        return  ResponseEntity.status(HttpStatus.OK)
-               .body(Mapper.toListEmprestimoResponse(service.listaEmprestimos()));
+               .body(Mapper.toListEmprestimoResponse(service.listaEmprestimos(condicao)));
 
    }
+
+    @PutMapping("devolucao/{id}")
+    public ResponseEntity<EmprestimoGetResponse> devolucao(@PathVariable Long id) {
+
+        return  ResponseEntity.status(HttpStatus.OK)
+                .body(Mapper.toEmprestimoGetResponse(service.devolucao(id)));
+
+    }
 
 }

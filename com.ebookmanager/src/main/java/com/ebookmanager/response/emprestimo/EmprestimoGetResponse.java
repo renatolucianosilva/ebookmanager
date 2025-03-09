@@ -30,4 +30,6 @@ public class EmprestimoGetResponse {
     private LocalDate dataDevolucao;
 
     private Double multa;
+
+    private Boolean devolucao;
 }

@@ -17,4 +17,6 @@ public interface EmprestimoMapper {
     EmprestimoPostResponse toEmprestimoResponse(Emprestimo emprestimo);
 
     List<EmprestimoGetResponse> toListEmprestimoResponse(List<Emprestimo> emprestimos);
+
+    EmprestimoGetResponse toEmprestimoGetResponse(Emprestimo emprestimo);
 }
