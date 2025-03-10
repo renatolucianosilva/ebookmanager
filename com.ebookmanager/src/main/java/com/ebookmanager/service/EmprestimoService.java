@@ -46,10 +46,12 @@ public class EmprestimoService {
 
         var emprestimoNew = Mapper.toEmprestimo(emprestimo);
 
-        emprestimoNew.selecionaUsuario(usuarioService.findById(emprestimo.getIdUsuario()));
-        emprestimoNew.selecionaLivro(livroService.findById(emprestimo.getIdLivro()));
+        var usuario = usuarioService.findById(emprestimo.getIdUsuario());
+        var livro = livroService.findById(emprestimo.getIdLivro());
 
-        return emprestimoNew.novoEmprestimo(emprestimoNew);
+
+        return emprestimoNew
+                .novoEmprestimo(usuario, livro);
     }
 
 

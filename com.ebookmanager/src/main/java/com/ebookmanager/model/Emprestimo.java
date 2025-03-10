@@ -53,12 +53,11 @@ public class Emprestimo {
     @Column(name = "devolucao")
     private Boolean devolucao;
 
-    public Emprestimo novoEmprestimo(Emprestimo emprestimo) {
-        this.livro = emprestimo.livro;
+    public Emprestimo novoEmprestimo(Usuario usuario, Livro livro) {
+        this.livro = livro;
         if (!livro.isDisponivel()) throw new BadRequestException("Livro Indisponivel");
         livro.updateDisponivel("EMPRESTIMO");
-        this.usuario = emprestimo.usuario;
-        this.dataEmprestimo = emprestimo.dataEmprestimo;
+        this.usuario = usuario;
         this.dataDevolucaoPrevista = dataDevolucaoPrevista(dataEmprestimo);
         this.multa = 0.0;
         this.devolucao = false;

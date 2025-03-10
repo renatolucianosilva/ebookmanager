@@ -1,5 +1,6 @@
 package com.ebookmanager.request.emprestimo;
 
+import com.ebookmanager.model.Emprestimo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -17,6 +18,8 @@ public class EmprestimoPostRequest {
     private LocalDate dataEmprestimo;
 
     private Boolean devolucao;
+
+
 
 
 
