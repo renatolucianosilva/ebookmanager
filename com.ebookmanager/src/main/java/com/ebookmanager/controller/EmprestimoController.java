@@ -28,7 +28,7 @@ public class EmprestimoController {
    public ResponseEntity<EmprestimoPostResponse> createEmprestimo(@RequestBody EmprestimoPostRequest emprestimoRequest) {
 
        return ResponseEntity.status(HttpStatus.CREATED)
-               .body(Mapper.toEmprestimoResponse(service.create(Mapper.toEmprestimo(emprestimoRequest), emprestimoRequest)));
+               .body(Mapper.toEmprestimoResponse(service.create(emprestimoRequest)));
 
    }
 
@@ -43,8 +43,7 @@ public class EmprestimoController {
     @PutMapping("devolucao/{id}")
     public ResponseEntity<EmprestimoGetResponse> devolucao(@PathVariable Long id) {
 
-        return  ResponseEntity.status(HttpStatus.OK)
-                .body(Mapper.toEmprestimoGetResponse(service.devolucao(id)));
+        return  null;
 
     }
 

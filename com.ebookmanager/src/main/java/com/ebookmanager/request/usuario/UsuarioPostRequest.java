@@ -21,6 +21,6 @@ public class UsuarioPostRequest {
     @NotEmpty(message = "Campo Autor Obrigatorio")
     private String telefone;
 
-    private boolean adplencia;
+    private boolean adplencia = true;
 
 }

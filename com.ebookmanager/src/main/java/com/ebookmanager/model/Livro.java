@@ -38,4 +38,14 @@ public class Livro {
     @Column(name = "disponivel")
     private Boolean disponivel;
 
+    public void updateDisponivel(String operacao) {
+        if(operacao.equals("EMPRESTIMO")) this.disponivel = false;
+
+        if(operacao.equals("DEVOLUCAO")) this.disponivel = true;
+    }
+
+    public Boolean isDisponivel() {
+        return disponivel;
+    }
+
 }

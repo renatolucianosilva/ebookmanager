@@ -21,6 +21,6 @@ public class LivroPostRequest {
     private String editora;
     private Integer anoPublicacao;
     private Genero genero;
-    private Boolean disponivel;
+    private Boolean disponivel = true;
 
 }
