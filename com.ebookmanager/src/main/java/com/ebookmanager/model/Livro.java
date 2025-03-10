@@ -1,5 +1,6 @@
 package com.ebookmanager.model;
 
+import com.ebookmanager.exceptions.BadRequestException;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,13 +40,17 @@ public class Livro {
     private Boolean disponivel;
 
     public void updateDisponivel(String operacao) {
+
+        if (!disponivel) throw new BadRequestException("Livro Indisponivel");
+
         if(operacao.equals("EMPRESTIMO")) this.disponivel = false;
 
         if(operacao.equals("DEVOLUCAO")) this.disponivel = true;
+
+
+
     }
 
-    public Boolean isDisponivel() {
-        return disponivel;
-    }
+
 
 }

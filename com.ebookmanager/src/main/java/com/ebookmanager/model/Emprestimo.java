@@ -55,7 +55,6 @@ public class Emprestimo {
 
     public Emprestimo novoEmprestimo(Usuario usuario, Livro livro) {
         this.livro = livro;
-        if (!livro.isDisponivel()) throw new BadRequestException("Livro Indisponivel");
         livro.updateDisponivel("EMPRESTIMO");
         this.usuario = usuario;
         this.dataDevolucaoPrevista = dataDevolucaoPrevista(dataEmprestimo);
