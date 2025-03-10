@@ -4,6 +4,7 @@ import com.ebookmanager.mapper.EmprestimoMapper;
 import com.ebookmanager.model.Emprestimo;
 import com.ebookmanager.repository.EmprestimoRepository;
 import com.ebookmanager.request.emprestimo.EmprestimoPostRequest;
+import com.ebookmanager.request.emprestimo.EmprestimoPutRequest;
 import com.ebookmanager.response.emprestimo.EmprestimoGetResponse;
 import com.ebookmanager.response.emprestimo.EmprestimoPostResponse;
 import com.ebookmanager.service.EmprestimoService;
@@ -40,10 +41,11 @@ public class EmprestimoController {
 
    }
 
-    @PutMapping("devolucao/{id}")
-    public ResponseEntity<EmprestimoGetResponse> devolucao(@PathVariable Long id) {
+    @PutMapping("devolucao")
+    public ResponseEntity<EmprestimoGetResponse> devolucao(@RequestBody EmprestimoPutRequest emprestimoPutRequest) {
 
-        return  null;
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(Mapper.toEmprestimoGetResponse(service.devolverLivro(Mapper.toEmprestimo(emprestimoPutRequest))));
 
     }
 

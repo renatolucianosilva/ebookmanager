@@ -34,6 +34,10 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "id_agendamento"))
     private List<Emprestimo> emprestimos;
 
+    public void atualizaAdplencia(Boolean adplencia) {
 
+        this.adplencia = adplencia;
+
+    }
 
 }

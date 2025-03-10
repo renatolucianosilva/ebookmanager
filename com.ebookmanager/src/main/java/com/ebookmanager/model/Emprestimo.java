@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Data
@@ -65,6 +66,18 @@ public class Emprestimo {
         return this;
     }
 
+    public Emprestimo devolucao(Emprestimo emprestimo){
+        emprestimo.livro.updateDisponivel("DEVOLUCAO");
+
+        emprestimo.multa = calculaMulta(emprestimo);
+
+        emprestimo.devolucao = true;
+
+        emprestimo.dataDevolucao = LocalDate.now();
+
+        return emprestimo;
+    }
+
     public LocalDate dataDevolucaoPrevista(LocalDate date) {
 
         return date.plusDays(15L);
@@ -78,5 +91,21 @@ public class Emprestimo {
     public Livro selecionaLivro(Livro livro) {
         return this.livro = livro;
     }
+
+    public Double calculaMulta(Emprestimo emprestimo) {
+
+        double MULTA_POR_DIA = 1.5;
+        double diasAtrasados = emprestimo.dataDevolucaoPrevista
+                .until(LocalDate.now(), ChronoUnit.DAYS);
+        if ( diasAtrasados <= 10) return 0.0;
+
+        emprestimo.usuario.atualizaAdplencia(false);
+
+        return diasAtrasados * MULTA_POR_DIA;
+
+
+    }
+
+
 
 }

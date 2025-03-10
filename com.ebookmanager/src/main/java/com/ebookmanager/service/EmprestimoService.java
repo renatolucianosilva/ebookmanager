@@ -14,13 +14,14 @@ import java.util.List;
 @AllArgsConstructor
 public class EmprestimoService {
 
-    private EmprestimoMapper Mapper;
 
-    private EmprestimoRepository repository;
+    private final EmprestimoMapper Mapper;
 
-    private LivroService livroService;
+    private final EmprestimoRepository repository;
 
-    private UsuarioService usuarioService;
+    private final LivroService livroService;
+
+    private final UsuarioService usuarioService;
 
 
     public Emprestimo create(EmprestimoPostRequest emprestimo) {
@@ -52,10 +53,12 @@ public class EmprestimoService {
     }
 
 
-    public void devolverLivro(Long id) {
+    public Emprestimo devolverLivro(Emprestimo emprestimo) {
 
-        var livro = livroService.findById(id);
-        livro.setDisponivel(true);
+    var emprestimoUpdated = findById(emprestimo.getIdEmprestimo());
+
+       return repository.save(emprestimo.devolucao(emprestimoUpdated));
+
 
     }
 }
