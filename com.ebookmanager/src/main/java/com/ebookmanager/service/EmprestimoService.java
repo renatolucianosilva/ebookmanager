@@ -57,9 +57,9 @@ public class EmprestimoService {
 
     public Emprestimo devolverLivro(Emprestimo emprestimo) {
 
-    var emprestimoUpdated = findById(emprestimo.getIdEmprestimo());
+    //var emprestimoUpdated = findById(emprestimo.getIdEmprestimo());
 
-       return repository.save(emprestimo.devolucao(emprestimoUpdated));
+       return repository.save(emprestimo.devolucao());
 
 
     }

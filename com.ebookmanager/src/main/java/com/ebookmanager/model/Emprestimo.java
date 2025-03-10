@@ -65,16 +65,16 @@ public class Emprestimo {
         return this;
     }
 
-    public Emprestimo devolucao(Emprestimo emprestimo){
-        emprestimo.livro.updateDisponivel("DEVOLUCAO");
+    public Emprestimo devolucao(){
+        this.livro.updateDisponivel("DEVOLUCAO");
 
-        emprestimo.multa = calculaMulta(emprestimo);
+        this.multa = calculaMulta();
 
-        emprestimo.devolucao = true;
+        this.devolucao = true;
 
-        emprestimo.dataDevolucao = LocalDate.now();
+        this.dataDevolucao = LocalDate.now();
 
-        return emprestimo;
+        return this;
     }
 
     public LocalDate dataDevolucaoPrevista(LocalDate date) {
@@ -91,14 +91,14 @@ public class Emprestimo {
         return this.livro = livro;
     }
 
-    public Double calculaMulta(Emprestimo emprestimo) {
+    public Double calculaMulta() {
 
         double MULTA_POR_DIA = 1.5;
-        double diasAtrasados = emprestimo.dataDevolucaoPrevista
+        double diasAtrasados = this.dataDevolucaoPrevista
                 .until(LocalDate.now(), ChronoUnit.DAYS);
         if ( diasAtrasados <= 10) return 0.0;
 
-        emprestimo.usuario.atualizaAdplencia(false);
+        this.usuario.atualizaAdplencia(false);
 
         return diasAtrasados * MULTA_POR_DIA;
 
