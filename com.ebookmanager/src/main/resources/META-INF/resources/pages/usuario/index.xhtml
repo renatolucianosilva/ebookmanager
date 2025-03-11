@@ -29,7 +29,7 @@
         </p:submenu>
 
         <p:submenu label="Livro">
-            <p:menuitem value="Adicionar" outcome="pages/livro/cadastro.xhtml" />
+            <p:menuitem value="Adicionar" action="#{livroBean.adicionar}" />
             <p:menuitem value="Pesquisar" action="#{livroBean.pesquisar}" />
             <p:menuitem value="Detalhes" action="#{livroBean.detalhes}" />
         </p:submenu>
@@ -45,6 +45,7 @@
     </p:menubar>
 
     </div>
+
 
 
 </h:body>
