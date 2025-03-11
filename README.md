@@ -46,7 +46,18 @@ Este projeto implementa um sistema web para gerenciar empréstimos de livros, ut
 | PUT    | `/usuarios/{id}` | Atualiza um Usuario existente.         |
 | DELETE | `/usuarios/{id}` | Deleta um Usuario pelo ID.             |
 
-### Frontend
+## emprestimo
+
+| Método | Endpoint                       | Descrição                                   |
+| ------ |--------------------------------|---------------------------------------------|
+| GET    | `/emprestimos`                 | Retorna a lista de todos os Empretimos      |
+| GET    | `/emprestimos/?condicao=false` | Retorna um Emprestimo  ainda não finalizado |
+| GET    | `/emprestimos/?condicao=true`  | Retorna um Emprestimo finalizado            |
+| POST   | `/emprestimos/`                | Cria um novo Emprestimo.                    |
+| PUT    | `/usuarios/devolucao`          | Atualiza o status de um Emprestimo          |
+
+
+### Frontend (não implementado)
 
 * JSF (JavaServer Faces)
 * PrimeFaces
