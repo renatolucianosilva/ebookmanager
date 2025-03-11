@@ -2,6 +2,8 @@ package com.ebookmanager.model;
 
 import com.ebookmanager.exceptions.BadRequestException;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,6 +40,11 @@ public class Livro {
 
     @Column(name = "disponivel")
     private Boolean disponivel;
+
+    public Livro(@NotNull(message = "Campo Título Obrigatorio") @NotEmpty(message = "Campo Título Obrigatorio") String titulo,
+                 @NotNull(message = "Campo Autor Obrigatorio") @NotEmpty(message = "Campo Autor Obrigatorio") String autor,
+                 String editora, Integer anoPublicacao, Genero genero, Boolean disponivel) {
+    }
 
     public void updateDisponivel(String operacao) {
 

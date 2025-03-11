@@ -5,12 +5,15 @@ import com.ebookmanager.model.Livro;
 import com.ebookmanager.repository.LivroRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class LivroService {
+
+    private RestTemplate restTemplate;
 
     private final LivroRepository livroRepository;
 
@@ -69,6 +72,8 @@ public class LivroService {
 
         return findById(idLivro);
     }
+
+
 
 
 }
