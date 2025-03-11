@@ -22,8 +22,6 @@ import java.io.Serializable;
 @RequestScoped
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class LivroManagedBean implements Serializable {
 
     @NotNull(message = "Campo Título Obrigatorio")
